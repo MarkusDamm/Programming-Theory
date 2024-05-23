@@ -14,6 +14,10 @@ public class Orc : Enemy
     public override void takeDamage(int damageTaken)
     {
         base.takeDamage(damageTaken);
-        attack();
+        gameLog.text += "The " + enemyName + " gets angry!";
+        if (health > 0)
+        {
+            attack();
+        }
     }
 }

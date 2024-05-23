@@ -19,7 +19,7 @@ public class Vampire : Enemy
 
     private void heal()
     {
-        gameLog.text = enemyName + " bites You and heals for " + strength + " points!";
-        health += strength;
+        gameLog.text = enemyName + " bites You and heals for " + m_strength + " points!";
+        health += m_strength;
     }
 }

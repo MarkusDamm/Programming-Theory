@@ -7,18 +7,20 @@ public class Enemy : MonoBehaviour
 {
     protected string enemyName;
     [SerializeField] protected Text gameLog;
+    protected int m_strength;
     protected int strength
     {
-        get { return strength; }
+        get { return m_strength; }
         set
         {
+            Debug.Log(value);
             if (value <= 0)
             {
                 Debug.LogError("Strengh can't be set to a negative value!");
             }
             else
             {
-                strength = value;
+                m_strength = value;
             }
         }
     }
@@ -26,18 +28,18 @@ public class Enemy : MonoBehaviour
 
     protected void Start()
     {
-        gameLog = GameObject.Find("Game Canvas").GetComponentInChildren<Text>();
+        gameLog = GameObject.Find("Game Log").GetComponent<Text>();
     }
 
     protected virtual void attack()
     {
-        gameLog.text += "%20 You take " + strength + " points of damage!";
+        gameLog.text += "\n You take " + m_strength + " points of damage!";
     }
 
     public virtual void takeDamage(int damageTaken)
     {
         health -= damageTaken;
-        string output = "%20 " + enemyName + " took " + damageTaken + " points of damage! ";
+        string output = "\n " + enemyName + " took " + damageTaken + " points of damage! ";
         if (health <= 0)
         {
             gameLog.text += output;
