@@ -31,9 +31,10 @@ public class Enemy : MonoBehaviour
         gameLog = GameObject.Find("Game Log").GetComponent<Text>();
     }
 
-    protected virtual void attack()
+    public virtual void attack()
     {
-        gameLog.text += "\n You take " + m_strength + " points of damage!";
+        //Debug.Log(gameLog);
+        gameLog.text += "\n You take " + strength + " points of damage!";
     }
 
     public virtual void takeDamage(int damageTaken)
@@ -55,5 +56,6 @@ public class Enemy : MonoBehaviour
     protected void die()
     {
         gameLog.text += "Congratulations! You defeated " + enemyName;
+        GameManager.EndGame();
     }
 }

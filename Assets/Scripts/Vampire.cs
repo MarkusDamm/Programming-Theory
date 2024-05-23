@@ -11,7 +11,7 @@ public class Vampire : Enemy
         health = Random.Range(8, 10);
     }
 
-    protected override void attack()
+    public override void attack()
     {
         base.attack();
         heal();
