@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Orc : Enemy
 {
     private void Awake()
@@ -11,6 +12,7 @@ public class Orc : Enemy
         health = Random.Range(12, 15);
     }
 
+    // POLYMORPHISM
     public override void takeDamage(int damageTaken)
     {
         base.takeDamage(damageTaken);

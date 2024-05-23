@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("Invalid Enemy Type Name!");
                 break;
         }
+        // ABSTRACTION
         ActivateGameCanvas(true);
     }
 
@@ -55,23 +56,25 @@ public class GameManager : MonoBehaviour
     public void PlayerAttack()
     {
         gameLog.text = "";
-        int attackDamage = Random.Range(1, 5);
+        int attackDamage = Random.Range(1, 6);
         currentEnemy.takeDamage(attackDamage);
-        EnemyMove();
+        EnemyMove(); // ABSTRACTION
     }
 
     public void PlayerDefend()
     {
         gameLog.text = ""; 
-        EnemyMove();
+        EnemyMove(); // ABSTRACTION
     }
 
+    // ABSTRACTION
     private void EnemyMove()
     {
         gameLog.text += "\n Enemy attacks";
         currentEnemy.attack();
     }
 
+    // ABSTRACTION
     public void ActivateGameCanvas(bool game)
     {
         gameCanvas.gameObject.SetActive(game);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Vampire : Enemy
 {
     private void Awake()
@@ -11,15 +12,17 @@ public class Vampire : Enemy
         health = Random.Range(8, 10);
     }
 
+    // POLYMORPHISM
     public override void attack()
     {
         base.attack();
         heal();
     }
 
+    // ABSTRACTION
     private void heal()
     {
-        gameLog.text = enemyName + " bites You and heals for " + m_strength + " points!";
+        gameLog.text += enemyName + " bites You and heals for " + m_strength + " points!";
         health += m_strength;
     }
 }

@@ -8,12 +8,12 @@ public class Enemy : MonoBehaviour
     protected string enemyName;
     [SerializeField] protected Text gameLog;
     protected int m_strength;
+    // ENCAPSULATION
     protected int strength
     {
         get { return m_strength; }
         set
         {
-            Debug.Log(value);
             if (value <= 0)
             {
                 Debug.LogError("Strengh can't be set to a negative value!");
@@ -33,8 +33,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void attack()
     {
-        //Debug.Log(gameLog);
-        gameLog.text += "\n You take " + strength + " points of damage!";
+        gameLog.text += "\n You take " + strength + " points of damage! ";
     }
 
     public virtual void takeDamage(int damageTaken)
@@ -53,6 +52,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     protected void die()
     {
         gameLog.text += "Congratulations! You defeated " + enemyName;
